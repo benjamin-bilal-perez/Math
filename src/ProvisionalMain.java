@@ -2,7 +2,7 @@ import vector.Vector2;
 
 public class ProvisionalMain {
     public static void main(String[] args) {
-        Vector2 vector1 = new Vector2(1, 3);
+        /*Vector2 vector1 = new Vector2(3, 5);
         Vector2 vector2 = new Vector2(4, 6);
 
         // Vector module
@@ -43,6 +43,12 @@ public class ProvisionalMain {
         System.out.println(scalarProductVector.getX());
         System.out.println(scalarProductVector.getY());
         System.out.println("---------");
+
+        // Equal vector
+        System.out.println("Equal vector");
+        vector1.equals(vector2);
+        System.out.println("---------");*/
+
 
 
 

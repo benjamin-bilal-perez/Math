@@ -21,24 +21,36 @@ public class Vector2 {
         return Math.sqrt((Math.pow(x, 2))+(Math.pow(y, 2)));
     }
 
-    public Vector2 sum(Vector2 vector) {
-        Vector2 vecResult = new Vector2(x+vector.getX(), y+vector.getY());
-        return vecResult;
+    public double slope() {
+        return y/x;
     }
 
-    public Vector2 numMult(double scalar) {
-        Vector2 vecResult = new Vector2(x*scalar, y*scalar);
-        return vecResult;
+    public void sum(Vector2 vector) {
+        x = x + vector.getX();
+        y = y + vector.getY();
     }
 
-    public Vector2 deny() {
-        Vector2 vecResult = new Vector2(x*-1, y*-1);
-        return vecResult;
+    public void numMult(double scalar) {
+        x = x * scalar;
+        y = y + scalar;
     }
 
-    public Vector2 scalarProduct(Vector2 vector) {
-        Vector2 vecResult = new Vector2(x*vector.getX(), y*vector.getY());
-        return vecResult;
+    public void deny() {
+        x = x * -1;
+        y = y + -1;
+    }
+
+    public void scalarProduct(Vector2 vector) {
+        x = x * vector.getX();
+        y = y + vector.getY();
+    }
+    
+    public boolean equals(Vector2 vector) {
+        if (module() == vector.module() && slope() == vector.slope()) {
+            return true;
+        }
+
+        return false;
     }
 
 

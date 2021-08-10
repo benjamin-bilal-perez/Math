@@ -6,16 +6,30 @@ public class Vector3 {
     private double y;
     private double z;
 
+    //  point A has coordinates
+    private double[] aCoor;
+
+    //  point B has coordinates
+    private double[] bCoor;
+
+    //  point C has coordinates
+    private double[] cCoor;
+
+
     public Vector3() {
         x = 0;
         y = 0;
         z = 0;
     }
 
-    public Vector3(double x, double y, double z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+    public Vector3(double[] aCoor, double[] bCoor, double[] cCoor) {
+        this.aCoor = aCoor;
+        this.bCoor = bCoor;
+        this.cCoor = cCoor;
+
+        x = aCoor[0]-bCoor[0];
+        y = aCoor[1]-bCoor[1];
+        z = aCoor[1]-bCoor[1];
     }
 
     public void sum(Vector3 vector) {
@@ -25,29 +39,29 @@ public class Vector3 {
         z = z + vector.getZ();
     }
 
-    public Vector3 numMult(double scalar) {
-        Vector3 vecResult = new Vector3(x*scalar, y*scalar, z*scalar);
-        return vecResult;
+    public void numMult(double scalar) {
+        x = x*scalar;
+        y = y*scalar;
+        z = z*scalar;
     }
 
-    public Vector3 deny() {
-        Vector3 vecResult = new Vector3(x*-1, y*-1, z*-1);
-        return vecResult;
+    public void deny() {
+        x = x*-1;
+        y = y*-1;
+        z = z*-1;
     }
 
-    public Vector3 scalarProduct(Vector3 vector) {
-        Vector3 vecResult = new Vector3(x*vector.getX(), y*vector.getY(), z*vector.getY());
-        return vecResult;
+    public void scalarProduct(Vector3 vector) {
+        x = x*vector.getX();
+        y = y*vector.getY();
+        z = z*vector.getZ();
     }
 
-    public Vector3 crossProduct(Vector3 vector) {
+    public void crossProduct(Vector3 vector) {
         // A × B = (AyBz – AzBy) î + (AxBz – AzBx) ĵ + (AxBy –  AyBx) k
-        Vector3 vecResult = new Vector3(
-                ((y*vector.getZ())-(z*vector.getY())),
-                ((x*vector.getZ())-(z*vector.getX())),
-                ((x*vector.getY())-(y*vector.getX())));
-
-        return vecResult;
+        x = (y*vector.getZ())-(z*vector.getY());
+        y = (x*vector.getZ())-(z*vector.getX());
+        z = (x*vector.getY())-(y*vector.getX());
     }
 
     // Getter setter x
