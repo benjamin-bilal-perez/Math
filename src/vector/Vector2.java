@@ -53,6 +53,10 @@ public class Vector2 {
         return false;
     }
 
+    public void toStringg() {
+        System.out.println("X: " + x);
+        System.out.println("Y: " + y);
+    }
 
 
     // Getter setter x

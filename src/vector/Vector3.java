@@ -51,6 +51,16 @@ public class Vector3 {
         z = z*-1;
     }
 
+    // Correct?
+    public double module() {
+        return Math.sqrt((Math.pow(x, 2))+(Math.pow(y, 2))+(Math.pow(z, 2)));
+    }
+
+    // Correct?
+    public double slope() {
+        return y/x;
+    }
+
     public void scalarProduct(Vector3 vector) {
         x = x*vector.getX();
         y = y*vector.getY();
@@ -62,6 +72,20 @@ public class Vector3 {
         x = (y*vector.getZ())-(z*vector.getY());
         y = (x*vector.getZ())-(z*vector.getX());
         z = (x*vector.getY())-(y*vector.getX());
+    }
+
+    public boolean equals(Vector3 vector) {
+        if (module() == vector.module() && slope() == vector.slope()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void toStringg() {
+        System.out.println("X: " + x);
+        System.out.println("Y: " + y);
+        System.out.println("Z: " + z);
     }
 
     // Getter setter x
