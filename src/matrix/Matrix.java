@@ -14,6 +14,8 @@ public class Matrix {
         this.columns = columns;
     }
 
+
+
     // Getter setter rows
     public double getRows() {
         return rows;

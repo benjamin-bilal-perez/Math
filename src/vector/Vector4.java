@@ -1,44 +1,49 @@
 package vector;
 
-public class Vector3 {
-
+public class Vector4 {
     private double x;
     private double y;
     private double z;
+    private double w;
 
-    public Vector3() {
+    public Vector4() {
         x = 0;
         y = 0;
         z = 0;
+        w = 0;
     }
 
-    public Vector3(double x, double y, double z) {
+    public Vector4(double x, double y, double z, double w) {
         this.x = x;
         this.y = y;
         this.z = z;
+        this.w = w;
     }
 
-    public void sum(Vector3 vector) {
+    public void sum(Vector4 vector) {
         x = x + vector.getX();
         y = y + vector.getY();
         z = z + vector.getZ();
+        w = w + vector.getW();
     }
 
     public void numMult(double scalar) {
         x = x*scalar;
         y = y*scalar;
         z = z*scalar;
+        w = w*scalar;
     }
 
     public void deny() {
         x = x*-1;
         y = y*-1;
         z = z*-1;
+        w = w*-1;
     }
 
     // Correct?
     public double module() {
-        return Math.sqrt((Math.pow(x, 2))+(Math.pow(y, 2))+(Math.pow(z, 2)));
+        return Math.sqrt((Math.pow(x, 2))+(Math.pow(y, 2))+(Math.pow(z, 2))+(Math.pow(w, 2)));
     }
 
     // Correct?
@@ -46,20 +51,14 @@ public class Vector3 {
         return y/x;
     }
 
-    public void scalarProduct(Vector3 vector) {
+    public void scalarProduct(Vector4 vector) {
         x = x*vector.getX();
         y = y*vector.getY();
         z = z*vector.getZ();
+        w = w*vector.getW();
     }
 
-    public void crossProduct(Vector3 vector) {
-        // A × B = (AyBz – AzBy) î + (AxBz – AzBx) ĵ + (AxBy –  AyBx) k
-        x = (y*vector.getZ())-(z*vector.getY());
-        y = (x*vector.getZ())-(z*vector.getX());
-        z = (x*vector.getY())-(y*vector.getX());
-    }
-
-    public boolean equals(Vector3 vector) {
+    public boolean equals(Vector4 vector) {
         if (module() == vector.module() && slope() == vector.slope()) {
             return true;
         }
@@ -71,6 +70,7 @@ public class Vector3 {
         System.out.println("X: " + x);
         System.out.println("Y: " + y);
         System.out.println("Z: " + z);
+        System.out.println("W: " + w);
     }
 
     // Getter setter x
@@ -95,5 +95,13 @@ public class Vector3 {
     }
     public void setZ(double newZ) {
         z = newZ;
+    }
+
+    // Getter setter w
+    public double getW() {
+        return w;
+    }
+    public void setW(double newW) {
+        w = newW;
     }
 }
