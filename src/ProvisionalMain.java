@@ -50,6 +50,16 @@ public class ProvisionalMain {
         System.out.println("---------");*/
 
 
+        double arrayCaracteres[][];
+        arrayCaracteres = new double[3][3];
+
+        for (int i = 0; i < arrayCaracteres.length; i++) {
+            for (int j = 0; j < arrayCaracteres[i].length; j++) {
+                System.out.println(i + " " + j + " " + arrayCaracteres[i][j]);
+            }
+
+        }
+
 
 
     }
