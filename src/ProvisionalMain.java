@@ -1,3 +1,4 @@
+import matrix.Matrix3x3;
 import vector.Vector2;
 
 public class ProvisionalMain {
@@ -50,14 +51,18 @@ public class ProvisionalMain {
         System.out.println("---------");*/
 
 
-        double arrayCaracteres[][];
-        arrayCaracteres = new double[3][3];
+        Matrix3x3 matrix = new Matrix3x3(2,3,5,4,3,4,4,8,6);
+        Matrix3x3 matrix1 = new Matrix3x3(4,5,4,9,2,6,8,7,6);
 
-        for (int i = 0; i < arrayCaracteres.length; i++) {
-            for (int j = 0; j < arrayCaracteres[i].length; j++) {
-                System.out.println(i + " " + j + " " + arrayCaracteres[i][j]);
+        // double[][] matrixResult = {{}, {}, {}};
+
+        // matrixResult = matrix.multiply(matrix1);
+        matrix.multiply(matrix1);
+
+        for (int i = 0; i < matrix.getElements().length; i++) {
+            for (int j = 0; j < matrix.getElements()[0].length; j++) {
+                System.out.println("i: " + i + " j: " + j + " => " + matrix.getElements()[i][j]);
             }
-
         }
 
 
