@@ -33,22 +33,40 @@ public class Matrix3x3 {
         }
     }
 
-    // Test it!
-    public /*double[][]*/ void multiply(Matrix3x3 matrix) {
+    public void multiply(Matrix3x3 matrix) {
         int provisionalRes = 0;
         double[][] matrixRes = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
 
         for (int x = 0; x < rows; x++) {
             for (int i = 0; i < columns; i++) {
                 for (int j = 0; j < rows; j++) {
-                    System.out.println("---" + elements[j][i] + "---" + matrix.getElements()[x][i]);
-                    matrixRes[x][i] += elements[j][i]*matrix.getElements()[x][i];
-                    System.out.println(elements[j][i] + " x " + matrix.getElements()[x][i]);
+                    matrixRes[x][i] += elements[x][j]*matrix.getElements()[j][i];
+                    // System.out.println(elements[x][j] + " x " + matrix.getElements()[j][i]);
                 }
             }
         }
 
         elements = matrixRes;
+    }
+
+    public void scalarMult(double scalar) {
+        for (int i = 0; i < elements.length; i++) {
+            for (int j = 0; j < elements[i].length; j++) {
+                elements[i][j] *= scalar;
+            }
+        }
+    }
+
+    public void division(Matrix3x3 matrix) {
+
+    }
+
+    public void scalarDivision(double scalar) {
+        for (int i = 0; i < elements.length; i++) {
+            for (int j = 0; j < elements[i].length; j++) {
+                elements[i][j] /= scalar;
+            }
+        }
     }
 
 
