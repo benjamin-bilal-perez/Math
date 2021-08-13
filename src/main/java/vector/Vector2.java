@@ -21,10 +21,6 @@ public class Vector2 {
         return Math.sqrt((Math.pow(x, 2))+(Math.pow(y, 2)));
     }
 
-    public double slope() {
-        return y/x;
-    }
-
     public void sum(Vector2 vector) {
         x = x + vector.getX();
         y = y + vector.getY();
@@ -45,8 +41,10 @@ public class Vector2 {
         y = y + vector.getY();
     }
     
-    public boolean equals(Vector2 vector) {
-        if (module() == vector.module() && slope() == vector.slope()) {
+    public boolean equals(Object object) {
+        Vector2 vector = (Vector2)object;
+
+        if (x == vector.getX() && y == vector.y) {
             return true;
         }
 

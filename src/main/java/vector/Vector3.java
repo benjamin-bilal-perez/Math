@@ -36,7 +36,6 @@ public class Vector3 {
         z = z*-1;
     }
 
-    // Correct?
     public double module() {
         return Math.sqrt((Math.pow(x, 2))+(Math.pow(y, 2))+(Math.pow(z, 2)));
     }
@@ -60,17 +59,17 @@ public class Vector3 {
     }
 
     public boolean equals(Vector3 vector) {
-        if (module() == vector.module() && slope() == vector.slope()) {
+        if (vector.getX() == x && vector.getY() == y && vector.getZ() == z) {
             return true;
         }
 
         return false;
     }
 
-    public void toStringg() {
-        System.out.println("X: " + x);
-        System.out.println("Y: " + y);
-        System.out.println("Z: " + z);
+    @Override
+    public String toString() {
+        // x: 1, y: 5, z: 9
+        return "x: " + x + ", y: " + y + ", " + "z: " + z;
     }
 
     // Getter setter x
