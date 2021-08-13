@@ -41,14 +41,8 @@ public class Vector4 {
         w = w*-1;
     }
 
-    // Correct?
     public double module() {
         return Math.sqrt((Math.pow(x, 2))+(Math.pow(y, 2))+(Math.pow(z, 2))+(Math.pow(w, 2)));
-    }
-
-    // Correct?
-    public double slope() {
-        return y/x;
     }
 
     public void scalarProduct(Vector4 vector) {
@@ -58,19 +52,19 @@ public class Vector4 {
         w = w*vector.getW();
     }
 
-    public boolean equals(Vector4 vector) {
-        if (module() == vector.module() && slope() == vector.slope()) {
+    public boolean equals(Object object) {
+        Vector4 vector = (Vector4)object;
+
+        if (x == vector.getX() && y == vector.getY() && z == vector.getZ() && w == vector.getW()) {
             return true;
         }
 
         return false;
     }
 
-    public void toStringg() {
-        System.out.println("X: " + x);
-        System.out.println("Y: " + y);
-        System.out.println("Z: " + z);
-        System.out.println("W: " + w);
+    @Override
+    public String toString() {
+        return "x: " + x + ", y: " + y + ", " + "z: " + z;
     }
 
     // Getter setter x

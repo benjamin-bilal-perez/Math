@@ -40,11 +40,6 @@ public class Vector3 {
         return Math.sqrt((Math.pow(x, 2))+(Math.pow(y, 2))+(Math.pow(z, 2)));
     }
 
-    // Correct?
-    public double slope() {
-        return y/x;
-    }
-
     public void scalarProduct(Vector3 vector) {
         x = x*vector.getX();
         y = y*vector.getY();
@@ -58,8 +53,10 @@ public class Vector3 {
         z = (x*vector.getY())-(y*vector.getX());
     }
 
-    public boolean equals(Vector3 vector) {
-        if (vector.getX() == x && vector.getY() == y && vector.getZ() == z) {
+    public boolean equals(Object object) {
+        Vector3 vector = (Vector3)object;
+
+        if (x == vector.getX() && y == vector.getY() && z == vector.getZ()) {
             return true;
         }
 
@@ -68,7 +65,6 @@ public class Vector3 {
 
     @Override
     public String toString() {
-        // x: 1, y: 5, z: 9
         return "x: " + x + ", y: " + y + ", " + "z: " + z;
     }
 

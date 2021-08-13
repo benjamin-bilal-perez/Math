@@ -51,9 +51,9 @@ public class Vector2 {
         return false;
     }
 
-    public void toStringg() {
-        System.out.println("X: " + x);
-        System.out.println("Y: " + y);
+    @Override
+    public String toString() {
+        return "x: " + x + ", y: " + y;
     }
 
 
