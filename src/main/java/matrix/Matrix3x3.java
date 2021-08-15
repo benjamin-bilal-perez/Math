@@ -15,7 +15,7 @@ public class Matrix3x3 {
     public void sum(Matrix3x3 matrix) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                elements[i][j] += matrix.getElements()[i][j];
+                elements[i][j] += matrix.get(i, j);
             }
         }
     }
@@ -23,7 +23,7 @@ public class Matrix3x3 {
     public void subtraction(Matrix3x3 matrix) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                elements[i][j] -= matrix.getElements()[i][j];
+                elements[i][j] -= matrix.get(i, j);
             }
         }
     }
@@ -68,8 +68,8 @@ public class Matrix3x3 {
     }
 
     public void scalarMult(double scalar) {
-        for (int i = 0; i < elements.length; i++) {
-            for (int j = 0; j < elements[i].length; j++) {
+        for (int i = 0; i < 3; i++) { // rows
+            for (int j = 0; j < 3; j++) { // columns
                 elements[i][j] *= scalar;
             }
         }
@@ -87,45 +87,38 @@ public class Matrix3x3 {
         }
     }
 
+    @Override
+    public String toString() {
+        String matrixStr = "{";
+
+        for (int i = 0; i < 3; i++) {
+            matrixStr += "{";
+            for (int j = 0; j < 3; j++) {
+                matrixStr += elements[i][j] + ",";
+            }
+            // matrixStr = matrixStr.split("");
+
+            matrixStr = matrixStr.substring(0, matrixStr.length()-1)+"}, ";
+        }
+        matrixStr = matrixStr.substring(0, matrixStr.length()-2)+"}";
+
+        return matrixStr;
+    }
+
     private void checkBounds(int posX, int posY) {
         if (posX < 0 || posX > 2 || posY < 0 || posY > 2) {
-            throw new IndexOutOfBoundsException("Rango inválido: x: " +  posX + ", y: " + posY);
+            throw new IndexOutOfBoundsException("Invalid range: x: " +  posX + ", y: " + posY);
         }
+    }
+
+    // Getter and setter
+    public double get(int posX, int posY) {
+        checkBounds(posX, posY);
+        return elements[posX][posY];
     }
 
     public void set(int posX, int posY, double value) {
         checkBounds(posX, posY);
         elements[posX][posY] = value;
     }
-
-    public double get(int posX, int posY) {
-        checkBounds(posX, posY);
-        return elements[posX][posY];
-    }
-
-
-    // Getter setter rows
-    public double getRows() {
-        return rows;
-    }
-    public void setRows(double newRows) {
-        rows = newRows;
-    }
-
-    // Getter setter columns
-    public double getColumns() {
-        return columns;
-    }
-    public void setColumns(double newColumns) {
-        columns = newColumns;
-    }
-
-    // Getter setter elements
-    public double[][] getElements() {
-        return elements;
-    }/*
-    public void setElements(double[][] newElements) {
-        // controlar el límite
-        elements = newElements;
-    }*/
 }

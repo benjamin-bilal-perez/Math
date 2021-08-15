@@ -1,4 +1,5 @@
 import matrix.Matrix3x3;
+import matrix.Matrix4x4;
 import vector.Vector2;
 
 public class ProvisionalMain {
@@ -51,29 +52,11 @@ public class ProvisionalMain {
         System.out.println("---------");*/
 
 
-        Matrix3x3 matrix = new Matrix3x3(1,2,0,3,2,-1,5,1,-2);
-        Matrix3x3 matrix1 = new Matrix3x3(3,4,0,1,0,-2,-1,2,1);
+        Matrix4x4 matrix = new Matrix4x4(4,5,9,8,6,2,3,5,7,8,4,9,6,5,3,2);
 
-        // double[][] matrixResult = {{}, {}, {}};
+        String res = matrix.toString();
 
-        // matrixResult = matrix.multiply(matrix1);
-        matrix.multiply(matrix1);
-
-        for (int i = 0; i < matrix.getElements().length; i++) {
-            for (int j = 0; j < matrix.getElements()[0].length; j++) {
-                System.out.println("i: " + i + " j: " + j + " => " + matrix.getElements()[i][j]);
-            }
-        }
-
-        System.out.println("--------------------");
-
-        matrix.scalarMult(2);
-
-        for (int i = 0; i < matrix.getElements().length; i++) {
-            for (int j = 0; j < matrix.getElements()[0].length; j++) {
-                System.out.println("i: " + i + " j: " + j + " => " + matrix.getElements()[i][j]);
-            }
-        }
+        System.out.println(res);
 
 
 
