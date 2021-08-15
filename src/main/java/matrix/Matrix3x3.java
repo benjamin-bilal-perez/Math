@@ -1,5 +1,7 @@
 package matrix;
 
+import vector.Vector3;
+
 public class Matrix3x3 {
     private double[][] elements;
 
@@ -85,6 +87,20 @@ public class Matrix3x3 {
                 elements[i][j] /= scalar;
             }
         }
+    }
+
+    public boolean equals(Object object) {
+        Matrix3x3 matrix = (Matrix3x3) object;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (elements[i][j] != matrix.get(i, j)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     @Override

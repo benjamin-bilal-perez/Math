@@ -133,6 +133,21 @@ public class Matrix4x4 {
             }
         }
     }
+
+    public boolean equals(Object object) {
+        Matrix3x3 matrix = (Matrix3x3) object;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (elements[i][j] != matrix.get(i, j)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     @Override
     public String toString() {
         String matrixStr = "{";

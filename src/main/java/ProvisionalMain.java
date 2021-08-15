@@ -52,11 +52,17 @@ public class ProvisionalMain {
         System.out.println("---------");*/
 
 
-        Matrix4x4 matrix = new Matrix4x4(4,5,9,8,6,2,3,5,7,8,4,9,6,5,3,2);
+        Matrix3x3 matrix1 = new Matrix3x3(4,5,9,3,6,2,3,5,7);
+        Matrix3x3 matrix2 = new Matrix3x3(4,5,9,3,6,2,3,5,7);
 
-        String res = matrix.toString();
+        boolean equals = matrix1.equals(matrix2);
 
-        System.out.println(res);
+        System.out.println(equals);
+
+
+
+
+
 
 
 
