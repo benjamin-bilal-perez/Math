@@ -78,7 +78,56 @@ public class Matrix3x3 {
     }
 
     public void division(Matrix3x3 matrix) {
+        // Determinant different to cero?
+        boolean firstM = true; // To check what matrix will be the denominator
+        double res = ((elements[0][0]*elements[1][1]*elements[2][2])+
+                (elements[2][0]*elements[0][1]*elements[1][2])+
+                (elements[1][0]*elements[0][2]*elements[2][1])-
+                (elements[0][2]*elements[1][1]*elements[2][0])-
+                (elements[0][0]*elements[1][2]*elements[2][1])-
+                (elements[1][0]*elements[0][1]*elements[2][2]));
 
+        if (res == 0) {
+            res = ((matrix.get(0,0)*matrix.get(1,1)*matrix.get(2,2))+
+                    (matrix.get(2,0)*matrix.get(0,1)*matrix.get(1,2))+
+                    (matrix.get(1,0)*matrix.get(0,2)*matrix.get(2,1))-
+                    (matrix.get(0,2)*matrix.get(1,1)*matrix.get(2,0))-
+                    (matrix.get(0,0)*matrix.get(1,2)*matrix.get(2,1))-
+                    (matrix.get(1,0)*matrix.get(0,1)*matrix.get(2,2)));
+            firstM = false;
+            if (res == 0) {
+                throw new UnsupportedOperationException("Impossible operation, no invertible matrices");
+            }
+        }
+
+        // One of the matrix is invertible
+        // Now I will transpose it
+        Matrix3x3 transposeM = new Matrix3x3();
+
+        if (firstM == true) {
+            transposeM = transpose(elements);
+        } else {
+            transposeM = transpose(matrix.elements);
+        }
+
+        // System.out.println(transposeM.toString());
+
+    }
+
+    private Matrix3x3 transpose(double[][] matrix) {
+        Matrix3x3 transposeM = new Matrix3x3();
+
+        transposeM.set(0,0,matrix[0][0]);
+        transposeM.set(0,1,matrix[1][0]);
+        transposeM.set(0,2,matrix[2][0]);
+        transposeM.set(1,0,matrix[0][1]);
+        transposeM.set(1,1,matrix[1][1]);
+        transposeM.set(1,2,matrix[2][1]);
+        transposeM.set(2,0,matrix[0][2]);
+        transposeM.set(2,1,matrix[1][2]);
+        transposeM.set(2,2,matrix[2][2]);
+
+        return transposeM;
     }
 
     public void scalarDivision(double scalar) {
@@ -136,5 +185,10 @@ public class Matrix3x3 {
     public void set(int posX, int posY, double value) {
         checkBounds(posX, posY);
         elements[posX][posY] = value;
+    }
+
+    // Getter elements
+    public double[][] getElements() {
+        return elements;
     }
 }
