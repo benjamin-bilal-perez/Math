@@ -109,8 +109,31 @@ public class Matrix3x3 {
         } else {
             transposeM = transpose(matrix.elements);
         }
-
         // System.out.println(transposeM.toString());
+
+        double[][] provisionalMatrix;
+
+        // Adjunct matrix
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int x = 0; x < 3; x++) {
+                    for (int y = 0; y < 3; y++) {
+                        if (x == i) {
+                            break;
+                        } else if (y == j) {
+                            continue;
+                        }
+
+                    }
+                }
+
+
+            }
+        }
+
+    }
+
+    private double determinant(double[][] matrix) {
 
     }
 

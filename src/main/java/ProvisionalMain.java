@@ -52,21 +52,21 @@ public class ProvisionalMain {
         System.out.println("---------");*/
 
 
-        Matrix3x3 matrix1 = new Matrix3x3(1,-1,2,-2,0,4,0,-2,7);
+        /*Matrix3x3 matrix1 = new Matrix3x3(1,-1,2,-2,0,4,0,-2,7);
         Matrix3x3 matrix2 = new Matrix3x3(4,5,9,3,6,2,3,5,7);
 
         // boolean equals = matrix1.equals(matrix2);
 
         // System.out.println(equals);
 
-        matrix1.division(matrix2);
+        matrix1.division(matrix2);*/
 
+        int total = 0;
+        for (int i = 0; i < 10; i++) {
+            total++;
+        }
 
-
-
-
-
-
+        System.out.println("Total: " + total);
 
 
     }
