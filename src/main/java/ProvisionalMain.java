@@ -52,35 +52,46 @@ public class ProvisionalMain {
         System.out.println("---------");*/
 
 
-        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
-        // Matrix3x3 matrix2 = new Matrix3x3(8,7,5,0,4,2,-3,5,1);
-        Matrix3x3 matrix2 = new Matrix3x3(8,3,-4,14,7,-8,4,2,-2);
-
-        // boolean equals = matrix1.equals(matrix2);
-
-        // System.out.println(equals);
+        /*
+        ///////////////////////////
+        // Matrix division test
+        ///////////////////////////
+        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6); // 1,-1,2,-2,0,4,0,-2,7
+        Matrix3x3 matrix2 = new Matrix3x3(1,-1,2,-2,0,4,0,-2,7);
+        // Matrix3x3 matrix2 = new Matrix3x3(8,3,-4,14,7,-8,4,2,-2);
 
         matrix1.division(matrix2);
 
-        System.out.println("Final result:");
+        System.out.println("Division result:");
 
         for (int i = 0; i < matrix1.getElements().length; i++) {
             for (int j = 0; j < matrix1.getElements()[i].length; j++) {
                 System.out.println(matrix1.get(i,j));
             }
-            System.out.println("----------------");
         }
-
-        // int total = 0;
-        /*Double newElements[] = new Double[] {0.0, 3.0, 1.0};
-
-        for (int i = 0; i < newElements.length; i++) {
-            System.out.println(newElements[i]);
-            // total++;
-        }*/
+        */
 
 
-        // System.out.println("Total: " + total);
+
+        /*
+        ///////////////////////////
+        // Matrix multiplication test
+        ///////////////////////////
+        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6); // 1,-1,2,-2,0,4,0,-2,7
+        Matrix3x3 matrix2 = new Matrix3x3(4,1.5,-2,7,3.5,-4,2,1,-1);
+
+
+        matrix1.multiply(matrix2);
+
+        System.out.println("Multiplication result:");
+
+        for (int i = 0; i < matrix1.getElements().length; i++) {
+            for (int j = 0; j < matrix1.getElements()[i].length; j++) {
+                System.out.println(matrix1.get(i,j));
+            }
+        }
+        */
+
 
 
     }
