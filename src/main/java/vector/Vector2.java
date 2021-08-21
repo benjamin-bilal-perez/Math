@@ -28,17 +28,17 @@ public class Vector2 {
 
     public void numMult(double num) {
         x = x * num;
-        y = y + num;
+        y = y * num;
     }
 
     public void deny() {
         x = x * -1;
-        y = y + -1;
+        y = y * -1;
     }
 
     public void scalarProduct(Vector2 vector) {
         x = x * vector.getX();
-        y = y + vector.getY();
+        y = y * vector.getY();
     }
     
     public boolean equals(Object object) {
@@ -72,6 +72,4 @@ public class Vector2 {
     public void setY(double newY) {
         y = newY;
     }
-
-
 }
