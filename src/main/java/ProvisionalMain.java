@@ -52,8 +52,8 @@ public class ProvisionalMain {
         System.out.println("---------");*/
 
 
-        /*
-        ///////////////////////////
+
+        /*///////////////////////////
         // Matrix division test
         ///////////////////////////
         Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6); // 1,-1,2,-2,0,4,0,-2,7
@@ -68,8 +68,8 @@ public class ProvisionalMain {
             for (int j = 0; j < matrix1.getElements()[i].length; j++) {
                 System.out.println(matrix1.get(i,j));
             }
-        }
-        */
+        }*/
+
 
 
 
@@ -91,6 +91,8 @@ public class ProvisionalMain {
             }
         }
         */
+
+
 
 
 

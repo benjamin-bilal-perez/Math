@@ -82,29 +82,17 @@ public class Matrix3x3 {
         }
     }
 
-    public void division(Matrix3x3 matrix) {
-        // Determinant different to cero?
-        double deter = 0.0;
+    private double determinant(Matrix3x3 matrix) {
+        return ((matrix.get(0,0)*matrix.get(1,1)*matrix.get(2,2))+
+                (matrix.get(2,0)*matrix.get(0,1)*matrix.get(1,2))+
+                (matrix.get(1,0)*matrix.get(0,2)*matrix.get(2,1))-
+                (matrix.get(0,2)*matrix.get(1,1)*matrix.get(2,0))-
+                (matrix.get(0,0)*matrix.get(1,2)*matrix.get(2,1))-
+                (matrix.get(1,0)*matrix.get(0,1)*matrix.get(2,2)));
+    }
 
-        deter = ((matrix.get(0,0)*matrix.get(1,1)*matrix.get(2,2))+
-                    (matrix.get(2,0)*matrix.get(0,1)*matrix.get(1,2))+
-                    (matrix.get(1,0)*matrix.get(0,2)*matrix.get(2,1))-
-                    (matrix.get(0,2)*matrix.get(1,1)*matrix.get(2,0))-
-                    (matrix.get(0,0)*matrix.get(1,2)*matrix.get(2,1))-
-                    (matrix.get(1,0)*matrix.get(0,1)*matrix.get(2,2)));
-
-        if (deter == 0) {
-            throw new UnsupportedOperationException("Impossible operation, no invertible matrix");
-        }
-
-        System.out.println("Determinant: " + deter);
-
-        // Now I will transpose it
-        Matrix3x3 transposeM = new Matrix3x3();
-
-        transposeM = transpose(matrix.elements);
-
-        Double adjunctMatrix[][] = new Double[][] {{0.0, 0.0, 0.0},{0.0, 0.0, 0.0},{0.0, 0.0, 0.0}};
+    private Double[][] adjunctMatrix(Matrix3x3 matrix) {
+        Double adjunctMatrix[][] = new Double[3][3];
         // double[] newElements = {};
         Double newElements[] = new Double[0];
         double[][] elementsDeter;
@@ -120,34 +108,40 @@ public class Matrix3x3 {
                             continue;
                         }
 
-                        // Double arr[] = {};
-                        // System.out.println("Array:"+ Arrays.toString(arr));
                         ArrayList<Double> arrayList = new ArrayList<Double>(Arrays.asList(newElements));
-                        arrayList.add(transposeM.elements[x][y]);
+                        arrayList.add(matrix.elements[x][y]);
                         newElements = arrayList.toArray(newElements);
-                        // System.out.println("Array after adding element: "+Arrays.toString(newElements));
-
                     }
                 }
                 elementsDeter = new double[][]{{newElements[0], newElements[1]},
                         {newElements[2], newElements[3]}};
-                /*for (int w = 0; w < newElements.length; w++) {
-                    System.out.println(newElements[w]);
-                    // total++;
-                }
-                System.out.println("---------------");*/
                 adjunctMatrix[i][j] = Math.pow(-1, i+j)*determinant(elementsDeter);
                 newElements = new Double[0];
             }
         }
 
-        // Adjunt matrix
-        for (int i = 0; i < adjunctMatrix.length; i++) {
-            for (int j = 0; j < adjunctMatrix[i].length; j++) {
-                System.out.println(adjunctMatrix[i][j]);
-            }
+        return adjunctMatrix;
+    }
+
+    public void division(Matrix3x3 matrix) {
+        // Determinant different to cero?
+        double deter = determinant(matrix);
+
+        if (deter == 0) {
+            throw new UnsupportedOperationException("Impossible operation, no invertible matrix");
         }
 
+        System.out.println("Determinant: " + deter);
+
+        // Now I will transpose it
+        Matrix3x3 transposeM = new Matrix3x3();
+
+        transposeM = transpose(matrix.elements);
+
+        Double adjunctMatrix[][] = new Double[3][3];
+        adjunctMatrix = adjunctMatrix(transposeM);
+
+        // Other idea to avoid the code replication?
         // Scalar division, divided by the determinant of the matrix
         for (int i = 0; i < adjunctMatrix.length; i++) {
             for (int j = 0; j < adjunctMatrix[i].length; j++) {
@@ -155,23 +149,11 @@ public class Matrix3x3 {
             }
         }
 
-        // "Testing" the result
-        System.out.println("----------");
-        System.out.println("Adjunt divided by determinant (inverse)");
-        for (int i = 0; i < adjunctMatrix.length; i++) {
-            for (int j = 0; j < adjunctMatrix[i].length; j++) {
-                System.out.println(adjunctMatrix[i][j]);
-            }
-        }
-
-        System.out.println("----------");
-
         Matrix3x3 adjunt = new Matrix3x3(adjunctMatrix[0][0],adjunctMatrix[0][1],adjunctMatrix[0][2],
                 adjunctMatrix[1][0],adjunctMatrix[1][1],adjunctMatrix[1][2],
                 adjunctMatrix[2][0],adjunctMatrix[2][1],adjunctMatrix[2][2]);
 
         multiply(adjunt);
-
     }
 
     private double determinant(double[][] matrix) { // 2x2
@@ -193,6 +175,7 @@ public class Matrix3x3 {
 
         return transposeM;
     }
+
 
     public void scalarDivision(double scalar) {
         for (int i = 0; i < elements.length; i++) {
@@ -225,7 +208,6 @@ public class Matrix3x3 {
             for (int j = 0; j < 3; j++) {
                 matrixStr += elements[i][j] + ",";
             }
-            // matrixStr = matrixStr.split("");
 
             matrixStr = matrixStr.substring(0, matrixStr.length()-1)+"}, ";
         }

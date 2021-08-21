@@ -122,10 +122,6 @@ public class Matrix4x4 {
         }
     }
 
-    public void division(Matrix4x4 matrix) {
-
-    }
-
     public void scalarDivision(double scalar) {
         for (int i = 0; i < 4; i++) { // rows
             for (int j = 0; j < 4; j++) { // columns

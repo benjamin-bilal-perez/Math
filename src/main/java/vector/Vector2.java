@@ -26,9 +26,9 @@ public class Vector2 {
         y = y + vector.getY();
     }
 
-    public void numMult(double scalar) {
-        x = x * scalar;
-        y = y + scalar;
+    public void numMult(double num) {
+        x = x * num;
+        y = y + num;
     }
 
     public void deny() {
