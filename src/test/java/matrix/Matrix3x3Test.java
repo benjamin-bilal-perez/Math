@@ -117,5 +117,24 @@ public class Matrix3x3Test {
         assertEquals(new Matrix3x3(-1.5,2,0.5,4,-1,0,-1,1,0), matrix5);
     }
 
+    // scalarDivision
+    @Test
+    public void scalarDivision() {
+        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
+        Matrix3x3 matrix2 = new Matrix3x3(1,-1,2,-2,0,4,0,-2,7);
+        Matrix3x3 matrix3 = new Matrix3x3(12,20,-8,19,-36,40,13,27,-80);
+
+        matrix1.scalarDivision(1);
+        assertEquals(new Matrix3x3(3,5,1,2,-1,9,1,0,6), matrix1);
+
+        matrix2.scalarDivision(6);
+        assertEquals(new Matrix3x3(0.16666666666666666,-0.16666666666666666,0.3333333333333333,
+                -0.3333333333333333,0,0.6666666666666666,
+                0,-0.3333333333333333,1.1666666666666667), matrix2);
+
+        matrix3.scalarDivision(-4);
+        assertEquals(new Matrix3x3(-3,-5,2,-4.75,9,-10,-3.25,-6.75,20), matrix3);
+    }
+
 
 }
