@@ -232,7 +232,7 @@ public class Matrix3x3 {
     }
 
     // Getter elements
-    public double[][] getElements() {
+    /*public double[][] getElements() {
         return elements;
-    }
+    }*/
 }

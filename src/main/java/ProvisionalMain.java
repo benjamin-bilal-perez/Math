@@ -92,6 +92,11 @@ public class ProvisionalMain {
         }
         */
 
+        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
+        String hola = matrix1.toString();
+
+        System.out.println(hola);
+
 
 
 

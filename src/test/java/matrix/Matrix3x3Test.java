@@ -117,7 +117,6 @@ public class Matrix3x3Test {
         assertEquals(new Matrix3x3(-1.5,2,0.5,4,-1,0,-1,1,0), matrix5);
     }
 
-    // scalarDivision
     @Test
     public void scalarDivision() {
         Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
@@ -135,6 +134,31 @@ public class Matrix3x3Test {
         matrix3.scalarDivision(-4);
         assertEquals(new Matrix3x3(-3,-5,2,-4.75,9,-10,-3.25,-6.75,20), matrix3);
     }
+
+    @Test
+    public void equalsTest() {
+        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
+
+        assertEquals(false, matrix1.equals(new Matrix3x3(-3,5,4,3,-1,9,1,0,6)));
+        assertEquals(false, matrix1.equals(new Matrix3x3(-3,-5,-1,-2,1,-9,-1,-0,-6)));
+        assertEquals(false, matrix1.equals(new Matrix3x3(3,5,1,2,-1,9,1,1,6)));
+        assertEquals(true, matrix1.equals(new Matrix3x3(3,5,1,2,-1,9,1,0,6)));
+    }
+
+    @Test
+    public void toStringTest() {
+        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
+        Matrix3x3 matrix2 = new Matrix3x3(1,-1,2,-2,0,4,0,-2,7);
+        Matrix3x3 matrix3 = new Matrix3x3(12,20,-8,19,-36,40,13,27,-80);
+
+        assertEquals("{{3.0,5.0,1.0}, {2.0,-1.0,9.0}, {1.0,0.0,6.0}}", matrix1.toString());
+
+        assertEquals("{{1.0,-1.0,2.0}, {-2.0,0.0,4.0}, {0.0,-2.0,7.0}}", matrix2.toString());
+
+        assertEquals("{{12.0,20.0,-8.0}, {19.0,-36.0,40.0}, {13.0,27.0,-80.0}}", matrix3.toString());
+    }
+
+    // {{3.0,5.0,1.0}, {2.0,-1.0,9.0}, {1.0,0.0,6.0}}
 
 
 }
