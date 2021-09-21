@@ -64,7 +64,7 @@ public class Vector4 {
 
     @Override
     public String toString() {
-        return "x: " + x + ", y: " + y + ", " + "z: " + z;
+        return "x: " + x + ", y: " + y + ", " + "z: " + z + ", w: " + w;
     }
 
     // Getter setter x

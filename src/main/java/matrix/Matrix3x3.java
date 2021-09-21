@@ -131,8 +131,6 @@ public class Matrix3x3 {
             throw new UnsupportedOperationException("Impossible operation, no invertible matrix");
         }
 
-        System.out.println("Determinant: " + deter);
-
         // Now I will transpose it
         Matrix3x3 transposeM = new Matrix3x3();
 
