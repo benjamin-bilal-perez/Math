@@ -4,6 +4,7 @@ import org.junit.Test;
 import vector.Vector2;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class Matrix3x3Test {
 
@@ -158,7 +159,19 @@ public class Matrix3x3Test {
         assertEquals("{{12.0,20.0,-8.0}, {19.0,-36.0,40.0}, {13.0,27.0,-80.0}}", matrix3.toString());
     }
 
-    // {{3.0,5.0,1.0}, {2.0,-1.0,9.0}, {1.0,0.0,6.0}}
+    @Test
+    public void get() {
+        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
 
+        assertEquals(3, matrix1.get(0,0), 0.0);
+        assertEquals(9, matrix1.get(1,2), 0.0);
+
+        Throwable exception = assertThrows(
+                IndexOutOfBoundsException.class, () -> {
+                    matrix1.get(1,3);
+                });
+
+        assertEquals("Invalid range: x: 1, y: 3", exception.getMessage());
+    }
 
 }
