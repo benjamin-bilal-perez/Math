@@ -139,19 +139,19 @@ public class Matrix4x4 {
     }
 
     private double determinant4x4(Matrix4x4 matrix) {
-        return (determinant3x3(new Matrix3x3(matrix.get(1,1),matrix.get(1,2),matrix.get(1,3),
+        return (matrix.get(0,0)*determinant3x3(new Matrix3x3(matrix.get(1,1),matrix.get(1,2),matrix.get(1,3),
                 matrix.get(2,1),matrix.get(2,2),matrix.get(2,3),
                 matrix.get(3,1),matrix.get(3,2),matrix.get(3,3)))
                 -
-                determinant3x3(new Matrix3x3(matrix.get(1,0),matrix.get(1,2),matrix.get(1,3),
+                matrix.get(0,1)*determinant3x3(new Matrix3x3(matrix.get(1,0),matrix.get(1,2),matrix.get(1,3),
                         matrix.get(2,0),matrix.get(2,2),matrix.get(2,3),
                         matrix.get(3,0),matrix.get(3,2),matrix.get(3,3)))
                 +
-                determinant3x3(new Matrix3x3(matrix.get(1,0),matrix.get(1,1),matrix.get(1,3),
+                matrix.get(0,2)*determinant3x3(new Matrix3x3(matrix.get(1,0),matrix.get(1,1),matrix.get(1,3),
                         matrix.get(2,0),matrix.get(2,1),matrix.get(2,3),
                         matrix.get(3,0),matrix.get(3,1),matrix.get(3,3)))
                 -
-                determinant3x3(new Matrix3x3(matrix.get(1,0),matrix.get(1,1),matrix.get(1,2),
+                matrix.get(0,3)*determinant3x3(new Matrix3x3(matrix.get(1,0),matrix.get(1,1),matrix.get(1,2),
                         matrix.get(2,0),matrix.get(2,1),matrix.get(2,2),
                         matrix.get(3,0),matrix.get(3,1),matrix.get(3,2)))
         );
@@ -212,13 +212,14 @@ public class Matrix4x4 {
         transposeM.set(3,2,matrix[2][3]);
         transposeM.set(3,3,matrix[3][3]);
 
-
         return transposeM;
     }
 
     public void division(Matrix4x4 matrix) {
         // Determinant different to cero?
         double deter = determinant4x4(matrix);
+
+        System.out.println("Determinant: " + deter);
 
         if (deter == 0) {
             throw new UnsupportedOperationException("Impossible operation, no invertible matrix");

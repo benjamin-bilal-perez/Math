@@ -92,13 +92,10 @@ public class ProvisionalMain {
         }
         */
 
-        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
-        String hola = matrix1.toString();
+        Matrix4x4 matrix1 = new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,8,7,4,6,9,7);
+        Matrix4x4 matrix2 = new Matrix4x4(1,-1,2,-2,0,4,0,-2,7,4,5,8,7,4,5,6);
 
-        System.out.println(hola);
-
-
-
+        matrix1.division(matrix2);
 
 
     }
