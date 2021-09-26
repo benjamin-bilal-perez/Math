@@ -147,11 +147,11 @@ public class Matrix3x3 {
             }
         }
 
-        Matrix3x3 adjunt = new Matrix3x3(adjunctMatrix[0][0],adjunctMatrix[0][1],adjunctMatrix[0][2],
+        Matrix3x3 adjunct = new Matrix3x3(adjunctMatrix[0][0],adjunctMatrix[0][1],adjunctMatrix[0][2],
                 adjunctMatrix[1][0],adjunctMatrix[1][1],adjunctMatrix[1][2],
                 adjunctMatrix[2][0],adjunctMatrix[2][1],adjunctMatrix[2][2]);
 
-        multiply(adjunt);
+        multiply(adjunct);
     }
 
     private double determinant(double[][] matrix) { // 2x2
