@@ -124,60 +124,66 @@ public class Matrix4x4Test {
                 0.38898305084745766,0.4203389830508475,-0.7822033898305092,1.6000000000000005), matrix5);
     }
 
-    /*@Test
+    @Test
     public void scalarDivision() {
-        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
-        Matrix3x3 matrix2 = new Matrix3x3(1,-1,2,-2,0,4,0,-2,7);
-        Matrix3x3 matrix3 = new Matrix3x3(12,20,-8,19,-36,40,13,27,-80);
+        Matrix4x4 matrix1 = new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,8,7,4,6,9,7);
+        Matrix4x4 matrix2 = new Matrix4x4(1,-1,2,-2,0,4,0,-2,7,4,5,8,7,4,5,6);
+        Matrix4x4 matrix3 = new Matrix4x4(5,-3,2,3,4,5,8,9,9,1,4,5,6,8,9,7);
 
         matrix1.scalarDivision(1);
-        assertEquals(new Matrix3x3(3,5,1,2,-1,9,1,0,6), matrix1);
+        assertEquals(new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,8,7,4,6,9,7), matrix1);
 
         matrix2.scalarDivision(6);
-        assertEquals(new Matrix3x3(0.16666666666666666,-0.16666666666666666,0.3333333333333333,
-                -0.3333333333333333,0,0.6666666666666666,
-                0,-0.3333333333333333,1.1666666666666667), matrix2);
+        assertEquals(new Matrix4x4(0.16666666666666666,-0.16666666666666666,0.3333333333333333,-0.3333333333333333,
+                0,0.6666666666666666,0,-0.3333333333333333,
+                1.1666666666666667,0.6666666666666666,0.8333333333333334,1.3333333333333333,
+                1.1666666666666667,0.6666666666666666,0.8333333333333334,1), matrix2);
 
         matrix3.scalarDivision(-4);
-        assertEquals(new Matrix3x3(-3,-5,2,-4.75,9,-10,-3.25,-6.75,20), matrix3);
+        assertEquals(new Matrix4x4(-1.25,0.75,-0.5,-0.75,
+                -1.0,-1.25,-2.0,-2.25,
+                -2.25,-0.25,-1.0,-1.25,
+                -1.5,-2.0,-2.25,-1.75), matrix3);
     }
 
     @Test
     public void equalsTest() {
-        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
+        Matrix4x4 matrix1 = new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,8,4,6,9,7,8);
 
-        assertEquals(false, matrix1.equals(new Matrix3x3(-3,5,4,3,-1,9,1,0,6)));
-        assertEquals(false, matrix1.equals(new Matrix3x3(-3,-5,-1,-2,1,-9,-1,-0,-6)));
-        assertEquals(false, matrix1.equals(new Matrix3x3(3,5,1,2,-1,9,1,1,6)));
-        assertEquals(true, matrix1.equals(new Matrix3x3(3,5,1,2,-1,9,1,0,6)));
+        assertEquals(false, matrix1.equals(new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,8,4,6,9,7,1)));
+        assertEquals(false, matrix1.equals(new Matrix4x4(3,5,1,2,-1,9,1,0,1,5,8,4,6,9,7,8)));
+        assertEquals(false, matrix1.equals(new Matrix4x4(3,5,1,-2,-1,9,1,0,6,5,8,4,6,9,7,8)));
+        assertEquals(true, matrix1.equals(new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,8,4,6,9,7,8)));
     }
 
     @Test
     public void toStringTest() {
-        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
-        Matrix3x3 matrix2 = new Matrix3x3(1,-1,2,-2,0,4,0,-2,7);
-        Matrix3x3 matrix3 = new Matrix3x3(12,20,-8,19,-36,40,13,27,-80);
+        Matrix4x4 matrix1 = new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,8,7,4,6,9,7);
+        Matrix4x4 matrix2 = new Matrix4x4(1,-1,2,-2,0,4,0,-2,7,4,5,8,7,4,5,6);
+        Matrix4x4 matrix3 = new Matrix4x4(5,-3,2,3,4,5,8,9,9,1,4,5,6,8,9,7);
 
-        assertEquals("{{3.0,5.0,1.0}, {2.0,-1.0,9.0}, {1.0,0.0,6.0}}", matrix1.toString());
+        assertEquals("{{3.0,5.0,1.0,2.0}, {-1.0,9.0,1.0,0.0}, {6.0,5.0,8.0,7.0}, {4.0,6.0,9.0,7.0}}",
+                matrix1.toString());
 
-        assertEquals("{{1.0,-1.0,2.0}, {-2.0,0.0,4.0}, {0.0,-2.0,7.0}}", matrix2.toString());
+        assertEquals("{{1.0,-1.0,2.0,-2.0}, {0.0,4.0,0.0,-2.0}, {7.0,4.0,5.0,8.0}, {7.0,4.0,5.0,6.0}}",
+                matrix2.toString());
 
-        assertEquals("{{12.0,20.0,-8.0}, {19.0,-36.0,40.0}, {13.0,27.0,-80.0}}", matrix3.toString());
+        assertEquals("{{5.0,-3.0,2.0,3.0}, {4.0,5.0,8.0,9.0}, {9.0,1.0,4.0,5.0}, {6.0,8.0,9.0,7.0}}",
+                matrix3.toString());
     }
 
     @Test
     public void get() {
-        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
+        Matrix4x4 matrix1 = new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,8,7,4,6,9,7);
 
         assertEquals(3, matrix1.get(0,0), 0.0);
-        assertEquals(9, matrix1.get(1,2), 0.0);
+        assertEquals(0, matrix1.get(1,3), 0.0);
 
         Throwable exception = assertThrows(
                 IndexOutOfBoundsException.class, () -> {
-                    matrix1.get(1,3);
+                    matrix1.get(1,4);
                 });
 
-        assertEquals("Invalid range: x: 1, y: 3", exception.getMessage());
-    }*/
-
+        assertEquals("Invalid range: x: 1, y: 4", exception.getMessage());
+    }
 }

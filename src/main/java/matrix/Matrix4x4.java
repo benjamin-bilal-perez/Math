@@ -262,10 +262,6 @@ public class Matrix4x4 {
         multiply(adjunct);
     }
 
-    /*private double determinant(double[][] matrix) { // 2x2
-        return (matrix[0][0]*matrix[1][1])-(matrix[0][1]*matrix[1][0]);
-    }*/
-
     public void scalarDivision(double scalar) {
         for (int i = 0; i < 4; i++) { // rows
             for (int j = 0; j < 4; j++) { // columns
