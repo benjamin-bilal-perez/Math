@@ -8,14 +8,6 @@ import static org.junit.Assert.assertThrows;
 public class Matrix4x4Test {
 
     @Test
-    public void equals() {
-        Matrix4x4 matrix1 = new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,9,7,3,6,8,1);
-        Matrix4x4 matrix2 = new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,9,7,3,6,8,1);
-
-        assertEquals(matrix1.equals(matrix2), true);
-    }
-
-    @Test
     public void sum() {
         Matrix4x4 matrix1 = new Matrix4x4(3,5,1,2,-1,9,1,0,6,7,6,5,3,5,9,5);
         Matrix4x4 matrix2 = new Matrix4x4(1,-1,2,-2,0,4,0,-2,7,4,7,5,6,8,9,3);
@@ -147,7 +139,7 @@ public class Matrix4x4Test {
     }
 
     @Test
-    public void equalsTest() {
+    public void equals() {
         Matrix4x4 matrix1 = new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,8,4,6,9,7,8);
 
         assertEquals(false, matrix1.equals(new Matrix4x4(3,5,1,2,-1,9,1,0,6,5,8,4,6,9,7,1)));

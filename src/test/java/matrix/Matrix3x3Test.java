@@ -8,14 +8,6 @@ import static org.junit.Assert.assertThrows;
 public class Matrix3x3Test {
 
     @Test
-    public void equals() {
-        Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
-        Matrix3x3 matrix2 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
-
-        assertEquals(matrix1.equals(matrix2), true);
-    }
-
-    @Test
     public void sum() {
         Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
         Matrix3x3 matrix2 = new Matrix3x3(1,-1,2,-2,0,4,0,-2,7);
@@ -136,7 +128,7 @@ public class Matrix3x3Test {
     }
 
     @Test
-    public void equalsTest() {
+    public void equals() {
         Matrix3x3 matrix1 = new Matrix3x3(3,5,1,2,-1,9,1,0,6);
 
         assertEquals(false, matrix1.equals(new Matrix3x3(-3,5,4,3,-1,9,1,0,6)));
