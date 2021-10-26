@@ -99,9 +99,8 @@ public class ProvisionalMain {
         matrix1.division(matrix2);*/
 
         ConsoleCatcher calculator = new ConsoleCatcher();
-        calculator.question();
-        calculator.getConsole();
-        calculator.getOperators();
+        calculator.operation();
+        System.out.println(calculator.getResult());
 
 
     }

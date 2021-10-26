@@ -6,18 +6,87 @@ import java.util.Scanner;
 
 public class ConsoleCatcher {
     private String input;
+
     private double operator1;
     private double operator2;
-    private String operation;
+    private double result;
+
+    private String operationSymbol;
+
+    private Scanner scanner = new Scanner(System.in);
 
     public ConsoleCatcher() {
         operator1 = 0;
         operator2 = 0;
     }
 
-    public void question() {
-        System.out.println("Write some operation (+ - / *):");
+    public void operation() {
+        System.out.println("Write the operation symbol");
+        // Scanner scanner = new Scanner(System.in);
+        input = scanner.nextLine();
+
+        switch(input) {
+            case "+":
+                operationSymbol = input;
+                sum();
+                break;
+            case "-":
+                operationSymbol = input;
+                subtraction();
+                break;
+            case "*":
+                operationSymbol = input;
+                multiplication();
+                break;
+            case "/":
+                operationSymbol = input;
+                division();
+                break;
+            default:
+                System.out.println("Operación no disponible o errónea");
+        }
     }
+
+    public void operatorsCatcher() {
+        System.out.println("Write operator 1");
+        input = scanner.nextLine();
+
+        try {
+            Double.parseDouble(input);
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException(input + "is not a number");
+        }
+        operator1 = Double.parseDouble(input);
+
+        System.out.println("Write operator 2");
+        input = scanner.nextLine();
+
+        try {
+            Double.parseDouble(input);
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException(input + "is not a number");
+        }
+        operator2 = Double.parseDouble(input);
+    }
+
+
+    public void sum() {
+        operatorsCatcher();
+        result = operator1 + operator2;
+    }
+    public void subtraction() {
+        operatorsCatcher();
+        result = operator1 - operator2;
+    }
+    public void multiplication() {
+        operatorsCatcher();
+        result = operator1 * operator2;
+    }
+    public void division() {
+        operatorsCatcher();
+        result = operator1 / operator2;
+    }
+
 
     public void getConsole() {
         Scanner scanner = new Scanner(System.in);
@@ -25,41 +94,13 @@ public class ConsoleCatcher {
         System.out.println(input);
     }
 
-    public void getOperators() {
-        // split("-")
-        // "[-+*/]"
-        // String operatorsString[] = new String[2];
-        String operatorsString[] = input.split("[-+*/]");
-        // String symbolsString[] = new String[2];
-        String symbolsString[] = input.split("[0-9]+");
-
-        System.out.println("Operadores en string");
-        for (int i = 0; i < operatorsString.length; i++) {
-            System.out.println(operatorsString[i]);
-        }
-
-        System.out.println("////////////////");
-
-        System.out.println("Símbolos en string");
-        for (int i = 0; i < symbolsString.length; i++) {
-            System.out.println(symbolsString[i]);
-        }
-
-        System.out.println("//////////////");
-
-        String symbols = "";
-        for (int i = 0; i < symbolsString.length; i++) {
-            symbols += symbolsString[i];
-        }
-        System.out.println("Symbols: " + symbols);
-
-        operator1 = Double.parseDouble(operatorsString[0]);
-        operator2 = Double.parseDouble(operatorsString[1]);
-
-
-        // input.indexOf();
-
+    // Getter
+    public double getResult() {
+        return result;
     }
+
+
+
 
 
 
