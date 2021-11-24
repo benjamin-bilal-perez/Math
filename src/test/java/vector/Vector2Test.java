@@ -56,7 +56,6 @@ public class Vector2Test {
         assertEquals(vector1.equals(vector2), true);
     }
 
-    // Correct?
     @Test
     public void toStringTest() {
         Vector2 vector1 = new Vector2(4, 3);

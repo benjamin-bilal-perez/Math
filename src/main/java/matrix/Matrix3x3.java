@@ -1,7 +1,5 @@
 package matrix;
 
-import vector.Vector3;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 

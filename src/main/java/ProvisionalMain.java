@@ -1,3 +1,4 @@
+import basic.BasicOperations;
 import matrix.Matrix3x3;
 import matrix.Matrix4x4;
 import vector.Vector2;
@@ -97,8 +98,13 @@ public class ProvisionalMain {
 
         matrix1.division(matrix2);*/
 
+        /*System.out.println("Prueba");
         System.out.println("Prueba");
-        System.out.println("Prueba");
+
+        BasicOperations operation = new BasicOperations(1, 3);
+        operation.sum();
+
+        System.out.println(operation.getResult());*/
 
 
 
